@@ -29,7 +29,7 @@
                     <ul class="navbar-nav nav-pills d-flex w-100">
                         {% for section in site_sections %}
                             <li class="nav-item mx-3">
-                                <a class="nav-link bi {{ section.icon_url }}" href="#">
+                                <a class="nav-link bi {{ section.icon_url }}" href="{{ section.navigation_url }}">
                                     {{ section.display_text }}
                                 </a> 
                             </li>
