@@ -27,18 +27,13 @@
                 </a>
                 <div class="w-100" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-pills d-flex w-100">
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">Data</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">Similar Tickets</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">Modules</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">Pipelines</a>
-                        </li>
+                        {% for section in site_sections %}
+                            <li class="nav-item mx-3">
+                                <a class="nav-link bi {{ section.icon_url }}" href="#">
+                                    {{ section.display_text }}
+                                </a> 
+                            </li>
+                        {% endfor %}
                         <li class="nav-item flex-grow-1">
                         </li>
                         <li class="nav-item">
