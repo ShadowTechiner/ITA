@@ -22,5 +22,8 @@ from main.models import SiteSection
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('data/', index, name = 'data')
+    path('data/', index, name = 'data'),
+    path('st/', index, name = 'similartickets'),
+    path('modules/', index, name = 'modules'),
+    path('pipelines/', index, name = 'pipelines')
 ]

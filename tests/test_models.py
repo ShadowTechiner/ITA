@@ -6,7 +6,6 @@ from main.models import SiteSection
 
 class SiteSectionTest(TestCase):
 
-
     @classmethod
     def setUpTestData(cls):
         SiteSection.objects.create(id = 0, display_text = "Data", icon_url = "Some icon", navigation_path_name = "data")
@@ -61,6 +60,7 @@ class SiteSectionTest(TestCase):
         self.assertEqual(default_value, '#')
     
     def test_get_navigation_url(self):
-        site_section = SiteSection.objects.get(pk = 0)
-        url = site_section.get_navigation_url()
-        self.assertEqual(url, '/data/')
+        site_sections = SiteSection.objects.all()
+        urls = [site_section.get_navigation_url() for site_section in site_sections]
+        expected_results = ['/data/', '/st/', '/modules/', '/pipelines/', '#']
+        self.assertEqual(urls, expected_results)
