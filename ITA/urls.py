@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index
+from main.views import IndexView
 from main.models import SiteSection
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
-    path('data/', index, name = 'data'),
-    path('st/', index, name = 'similartickets'),
-    path('modules/', index, name = 'modules'),
-    path('pipelines/', index, name = 'pipelines')
+    path('', IndexView.as_view(), name='index'),
+    path('data/', IndexView.as_view(), name = 'data'),
+    path('st/', IndexView.as_view(), name = 'similartickets'),
+    path('modules/', IndexView.as_view(), name = 'modules'),
+    path('pipelines/', IndexView.as_view(), name = 'pipelines')
 ]
