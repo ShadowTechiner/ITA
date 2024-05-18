@@ -73,6 +73,8 @@ class Ticket(models.Model):
     operational_system = models.ForeignKey(OperationalSystem, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='OS')
     ide = models.ForeignKey(IDE, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='IDE')
 
+    def __str__(self):
+        return f'{self.ticket_number} : {self.subject}'
 
 class Node:
     def __init__(self, section, children):

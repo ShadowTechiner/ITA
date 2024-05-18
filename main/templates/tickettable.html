@@ -1,5 +1,38 @@
 {% extends 'datalayout.html' %}
 
+{% block resources %}
+    <script type="text/javascript" src="{{ baseUrl }}/scripts/TicketTable.js"></script>
+{% endblock resources %}
+
 {% block datablock %}
-    test
+    <div class='mx-3 my-3'>
+        <table id="ticketTable" class="table table-striped w-100 h-100">
+            <thead>
+                <tr>
+                    <td>Ticket Number</td>
+                    <td>Subject</td>
+                    <td>Date of Creation</td>
+                    <td>Platform</td>
+                    <td>Product</td>
+                    <td>Build</td>
+                    <td>OS</td>
+                    <td>IDE</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.ticket_number }}</td>
+                        <td>{{ ticket.subject }}</td>
+                        <td>{{ ticket.creation_date }}</td>
+                        <td>{{ ticket.platform }}</td>
+                        <td>{{ ticket.product }}</td>
+                        <td>{{ ticket.build }}</td>
+                        <td>{{ ticket.operational_system }}</td>
+                        <td>{{ ticket.ide }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock datablock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse
-from .models import SiteSection, SidebarSection, Node
+from .models import SiteSection, SidebarSection, Node, Ticket
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -27,6 +27,12 @@ class DataView(TemplateView):
 class DataTicketTableView(DataView):
 
     template_name = 'tickettable.html'
+
+    def get_context_data(self, **kwargs):
+        #TODO: get objects from web API
+        context = super().get_context_data(**kwargs)
+        context['tickets'] = Ticket.objects.all()
+        return context
 
 class DataTicketStatsView(DataView):
 
