@@ -27,3 +27,8 @@ class SiteSection(NavigationSection):
     
 class SidebarSection(NavigationSection):
     parent = models.ForeignKey('self', on_delete=models.SET_DEFAULT, default=-1, blank=True, null=True, unique=False, verbose_name='Parent')
+
+class Node:
+    def __init__(self, section, children):
+        self.section = section
+        self.children = children

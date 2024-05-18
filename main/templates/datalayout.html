@@ -4,7 +4,20 @@
 <div class="container-fluid d-flex flex-grow-1 flex-column">
     <div class="row flex-grow-1">
         <div class="col-sm-2 bg-secondary">
-            
+            <ul class="my-3 nav nav-pills flex-column">
+                {% for sidebar_parent_section in sidebar_parent_sections %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ sidebar_parent_section.section.get_navigation_url }}"> {{ sidebar_parent_section.section.display_text }} </a>
+                        <ul class="nav flex-column mx-4">
+                            {% for sidebar_child in sidebar_parent_section.children %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{ sidebar_child.display_text }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="col">
             {% block datablock %}
