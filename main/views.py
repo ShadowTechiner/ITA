@@ -12,11 +12,8 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["site_sections"] = SiteSection.objects.all()
         return context
-
-class DataTicketTableView(TemplateView):
-
-    template_name = 'tickettable.html'
-
+    
+class DataView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['site_sections'] = SiteSection.objects.all()
@@ -26,4 +23,20 @@ class DataTicketTableView(TemplateView):
             nodes.append(node)
         context['sidebar_parent_sections'] = nodes
         return context
+
+class DataTicketTableView(DataView):
+
+    template_name = 'tickettable.html'
+
+class DataTicketStatsView(DataView):
+
+    template_name = 'ticketstats.html'
+
+class DataPostTableView(DataView):
+
+    template_name = 'posttable.html'
+
+class DataPostStatsView(DataView):
+
+    template_name = 'poststats.html'
         

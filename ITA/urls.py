@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import IndexView, DataTicketTableView
+from main.views import IndexView, DataTicketTableView, DataTicketStatsView, DataPostTableView, DataPostStatsView
 from django.http import HttpResponse
 
 urlpatterns = [
@@ -24,7 +24,9 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('data/tickets/table', DataTicketTableView.as_view(), name = 'data'),
     path('data/tickets/table', DataTicketTableView.as_view(), name = 'tickettable'),
-    path('data/tickets/stats', lambda res: HttpResponse('test'), name = 'ticketstats'),
+    path('data/tickets/stats', DataTicketStatsView.as_view(), name = 'ticketstats'),
+    path('data/posts/table', DataPostTableView.as_view(), name = 'posttable'),
+    path('data/posts/stats', DataPostStatsView.as_view(), name = 'poststats'),
     path('st/', IndexView.as_view(), name = 'similartickets'),
     path('modules/', IndexView.as_view(), name = 'modules'),
     path('pipelines/', IndexView.as_view(), name = 'pipelines')
