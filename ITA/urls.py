@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import IndexView
+from main.views import IndexView, DataTicketTableView
 from main.models import SiteSection
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('data/', IndexView.as_view(), name = 'data'),
+    path('data/', DataTicketTableView.as_view(), name = 'data'),
     path('st/', IndexView.as_view(), name = 'similartickets'),
     path('modules/', IndexView.as_view(), name = 'modules'),
     path('pipelines/', IndexView.as_view(), name = 'pipelines')
