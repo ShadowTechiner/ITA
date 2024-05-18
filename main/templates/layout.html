@@ -19,7 +19,7 @@
     {% block resources %}
     {% endblock resources %}
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
             <div class="container-fluid">
@@ -46,7 +46,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="flex-grow-1 d-flex flex-column">
         {% block main %}
         {% endblock main %}
     </main>

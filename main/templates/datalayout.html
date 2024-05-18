@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="container-fluid d-flex flex-grow-1 flex-column">
+    <div class="row flex-grow-1">
+        <div class="col-sm-2 bg-secondary">
+            
+        </div>
+        <div class="col">
+            {% block datablock %}
+            {% endblock datablock %}
+        </div>
+    </div>
+</div>
+{% endblock main %}
