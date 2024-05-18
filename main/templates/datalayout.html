@@ -7,11 +7,17 @@
             <ul class="my-3 nav nav-pills flex-column">
                 {% for sidebar_parent_section in sidebar_parent_sections %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ sidebar_parent_section.section.get_navigation_url }}"> {{ sidebar_parent_section.section.display_text }} </a>
+                        <a class="nav-link" href="{{ sidebar_parent_section.section.get_navigation_url }}">
+                            <img width="16px" height="16px" src="{{ baseUrl }}/{{ sidebar_parent_section.section.icon_url }}"/>
+                            {{ sidebar_parent_section.section.display_text }} 
+                        </a>
                         <ul class="nav flex-column mx-4">
                             {% for sidebar_child in sidebar_parent_section.children %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ sidebar_child.get_navigation_url }}">{{ sidebar_child.display_text }}</a>
+                                    <a class="nav-link" href="{{ sidebar_child.get_navigation_url }}">
+                                        <img width="16px" height="16px" src="{{ baseUrl }}/{{ sidebar_child.icon_url }}"/>
+                                        {{ sidebar_child.display_text }}
+                                    </a>
                                 </li>
                             {% endfor %}
                         </ul>
