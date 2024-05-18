@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from main.views import IndexView, DataTicketTableView, DataTicketStatsView, DataPostTableView, DataPostStatsView
 from django.http import HttpResponse
+from data_api.views import TicketListView, TicketView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('data-api/tickets', TicketListView.as_view(), name = 'get-tickets'),
+    path('data-api/tickets/<slug:pk>', TicketView.as_view(), name='get-ticket'),
     path('', IndexView.as_view(), name='index'),
     path('data/tickets/table', DataTicketTableView.as_view(), name = 'data'),
     path('data/tickets/table', DataTicketTableView.as_view(), name = 'tickettable'),
