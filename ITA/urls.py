@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import IndexView, DataTicketTableView
-from main.models import SiteSection
+from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('data/', DataTicketTableView.as_view(), name = 'data'),
+    path('data/tickets/table', DataTicketTableView.as_view(), name = 'data'),
+    path('data/tickets/table', DataTicketTableView.as_view(), name = 'tickettable'),
+    path('data/tickets/stats', lambda res: HttpResponse('test'), name = 'ticketstats'),
     path('st/', IndexView.as_view(), name = 'similartickets'),
     path('modules/', IndexView.as_view(), name = 'modules'),
     path('pipelines/', IndexView.as_view(), name = 'pipelines')

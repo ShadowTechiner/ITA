@@ -11,7 +11,7 @@
                         <ul class="nav flex-column mx-4">
                             {% for sidebar_child in sidebar_parent_section.children %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">{{ sidebar_child.display_text }}</a>
+                                    <a class="nav-link" href="{{ sidebar_child.get_navigation_url }}">{{ sidebar_child.display_text }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
